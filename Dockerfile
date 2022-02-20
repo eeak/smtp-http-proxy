@@ -1,4 +1,4 @@
-FROM alpine:3.5
+FROM alpine:latest
 
 RUN apk --no-cache add g++ scons curl-dev boost-dev bash
 
