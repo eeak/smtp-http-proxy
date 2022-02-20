@@ -7,7 +7,10 @@ vars.Add(BoolVariable("check", "Run unit tests", "no"))
 # FIXME: Don't hardcode this
 vars.Add(PathVariable("boost_includedir", "Boost headers location", "/usr/local/homebrew/opt/boost/include" , PathVariable.PathAccept))
 vars.Add(PathVariable("boost_libdir", "Boost library location", "/usr/local/homebrew/opt/boost/lib", PathVariable.PathAccept))
-vars.Add(PathVariable("boost_libsuffix", "Boost library suffix", "-mt", PathVariable.PathAccept))
+# Up to Alpine 3.7
+#vars.Add(PathVariable("boost_libsuffix", "Boost library suffix", "-mt", PathVariable.PathAccept))
+# After Alpine 3.7
+vars.Add(PathVariable("boost_libsuffix", "Boost library suffix", "", PathVariable.PathAccept))
 
 env = Environment(ENV = {'PATH': os.environ['PATH']}, variables = vars)
 Help(vars.GenerateHelpText(env))
